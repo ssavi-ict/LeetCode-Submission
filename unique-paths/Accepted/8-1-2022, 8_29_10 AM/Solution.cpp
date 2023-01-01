@@ -1,0 +1,18 @@
+// https://leetcode.com/problems/unique-paths
+
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        int grid[2][n+1];
+        memset(grid, 0, sizeof(grid));
+        for(int i=0; i<n; i++) grid[0][i] = 1;
+        grid[1][0] = 1;
+        
+        for(int i=1; i<m; i++){
+            for(int j=1; j<n; j++){
+                grid[i%2][j] = grid[(i%2-1==-1)?1:0][j] + grid[i%2][j-1];
+            }
+        }
+        return grid[(m%2-1==-1)?1:0][n-1];
+    }
+};

@@ -1,0 +1,9 @@
+// https://leetcode.com/problems/second-highest-salary
+
+/* Write your T-SQL query statement below */
+
+SELECT TOP 1 salary SecondHighestSalary
+FROM (SELECT DISTINCT TOP 2 salary
+        FROM Employee
+        ORDER BY salary desc) Result
+order by salary;

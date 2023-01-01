@@ -1,0 +1,11 @@
+// https://leetcode.com/problems/game-play-analysis-ii
+
+/* Write your T-SQL query statement below */
+select 
+    a1.player_id as player_id, 
+    a1.device_id as device_id
+from Activity a1
+inner join (select player_id, min(event_date) as event_date  
+            from Activity 
+            group by player_id) a2
+on a1.player_id = a2.player_id and a1.event_date = a2.event_date;

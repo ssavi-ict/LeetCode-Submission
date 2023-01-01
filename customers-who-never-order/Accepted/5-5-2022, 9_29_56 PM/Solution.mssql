@@ -1,0 +1,10 @@
+// https://leetcode.com/problems/customers-who-never-order
+
+/* Write your T-SQL query statement below */
+
+SELECT
+    name as 'Customers'
+FROM
+    Customers
+WHERE 
+    customers.id NOT IN(SELECT customerId FROM Orders);
